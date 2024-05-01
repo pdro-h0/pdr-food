@@ -11,6 +11,7 @@ import { Button } from "./_components/ui/button";
 import { ChevronRight } from "lucide-react";
 import PromoBanner from "./_components/promo-banner";
 import RestaurantList from "./_components/restaurant-list";
+import Link from "next/link";
 
 export default async function Home() {
   const products = await db.product.findMany({
@@ -72,13 +73,15 @@ export default async function Home() {
       <div className="py-6 space-y-4">
         <div className="flex items-center justify-between px-5">
           <h2 className="font-semibold">Restaurantes Recomendados</h2>
-          <Button
-            variant="ghost"
-            className="h-fit p-0 text-primary hover:bg-transparent"
-          >
-            Ver todos
-            <ChevronRight size={16} />
-          </Button>
+          <Link href="/restaurants/recommended">
+            <Button
+              variant="ghost"
+              className="h-fit p-0 text-primary hover:bg-transparent"
+            >
+              Ver todos
+              <ChevronRight size={16} />
+            </Button>
+          </Link>
         </div>
         <RestaurantList />
       </div>
