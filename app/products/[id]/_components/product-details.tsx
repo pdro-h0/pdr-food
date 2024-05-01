@@ -44,7 +44,7 @@ const ProductDetails = ({
     });
   };
   return (
-    <div className="py-5">
+    <div className="py-5 relative bg-white z-50 mt-[-1.5rem] rounded-t-3xl">
       <div className="flex items-center gap-[0.375rem] px-5">
         <div className="relative h-6 w-6">
           <Image
@@ -116,10 +116,10 @@ const ProductDetails = ({
               <span className="text-xs">Entrega</span>
               <TimerIcon size={14} />
             </div>
-      
-              <p className="text-xs font-semibold">
-                {product.restaurant.deliveryTimeMinutes} min
-              </p>
+
+            <p className="text-xs font-semibold">
+              {product.restaurant.deliveryTimeMinutes} min
+            </p>
           </div>
         </Card>
       </div>
