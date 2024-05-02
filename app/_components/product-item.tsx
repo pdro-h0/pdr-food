@@ -15,11 +15,12 @@ interface ProductItemProps {
       };
     };
   }>;
+  className: string
 }
 
-const ProductItem = ({ product }: ProductItemProps) => {
+const ProductItem = ({ product, className }: ProductItemProps) => {
   return (
-    <Link className="w-[150px] min-w-[150px]" href={`/products/${product.id}`}>
+    <Link className={className} href={`/products/${product.id}`}>
       <div className="w-full space-y-2">
         <div className="relative w-full h-[150px] ">
           <Image

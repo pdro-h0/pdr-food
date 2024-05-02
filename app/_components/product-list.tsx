@@ -16,11 +16,14 @@ interface ProductListProps {
 }
 
 const ProductList = ({ products }: ProductListProps) => {
-  
   return (
     <div className="flex overflow-x-scroll [&::-webkit-scrollbar]:hidden gap-4 px-5">
       {products.map((product) => (
-        <ProductItem product={product} key={product.id} />
+        <ProductItem
+          product={product}
+          key={product.id}
+          className="w-[150px] min-w-[150px]"
+        />
       ))}
     </div>
   );
