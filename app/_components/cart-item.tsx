@@ -51,12 +51,12 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
 
             {cartProduct.discountPercentage > 0 && (
               <span className="text-xs text-muted-foreground line-through">
-                {formatCurrency(+cartProduct.price  * cartProduct.quantity)}
+                {formatCurrency(+cartProduct.price * cartProduct.quantity)}
               </span>
             )}
           </div>
 
-          <div className="flex items-center gap-3 text-center">
+          <div className="flex items-center text-center">
             <Button
               size="icon"
               variant="ghost"
@@ -64,7 +64,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
             >
               <ChevronLeft size={16} onClick={handleDecreaseQuantity} />
             </Button>
-            <span className="w-3 text-xs block">{cartProduct.quantity}</span>
+            <span className="w-8 text-xs block">{cartProduct.quantity}</span>
             <Button size="icon" className="size-7">
               <ChevronRight size={16} onClick={handleIncreaseQuantity} />
             </Button>
