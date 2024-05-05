@@ -52,23 +52,36 @@ model Product {
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId String   @map("category_id")
 
-  orders Order[]
+  orderProducts OrderProduct[]
 
   @@map("products")
 }
 
+model OrderProduct {
+  id        String  @id @default(uuid())
+  quantity  Int
+
+  orderId   String @map("order_id")
+  order     Order   @relation(fields: [orderId], references: [id])
+  
+  productId String @map("product_id")
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@map("Order_products")
+}
+
 model Order {
-  id String @id @default(uuid())
+  id                  String   @id @default(uuid())
+  deliveryFee         Decimal  @map("delivery_fee") @db.Decimal(10, 2)
+  deliveryTimeMinutes Int      @map("delivery_time_minutes")
+  subtotalPrice       Decimal  @map("subtotal_price") @db.Decimal(10, 2)
+  totalPrice          Decimal  @map("total_price") @db.Decimal(10, 2)
+  totalDiscounts      Decimal  @map("total_discounts") @db.Decimal(10, 2)
+  createdAt           DateTime @default(now()) @map("created_at")
 
-  deliveryFee         Decimal     @map("delivery_fee") @db.Decimal(10, 2)
-  deliveryTimeMinutes Int         @map("delivery_time_minutes")
-  subtotalPrice       Decimal     @map("subtotal_price") @db.Decimal(10, 2)
-  totalPrice          Decimal     @map("total_price") @db.Decimal(10, 2)
-  totalDiscounts      Decimal     @map("total_discounts") @db.Decimal(10, 2)
-  createdAt           DateTime    @default(now()) @map("created_at")
-  status              OrderStatus
+  status OrderStatus
 
-  products Product[]
+  products OrderProduct[]
 
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   restaurantId String     @map("restaurant_id")

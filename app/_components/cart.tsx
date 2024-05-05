@@ -49,6 +49,14 @@ const Cart = () => {
         user: {
           connect: { id: data.user.id },
         },
+        products: {
+          createMany: {
+            data: products.map((product) => ({
+              productId: product.id,
+              quantity: product.quantity,
+            })),
+          },
+        },
       });
 
       clearCart();
@@ -105,10 +113,12 @@ const Cart = () => {
                 </CardContent>
               </Card>
             </div>
-            <Button 
-            className="mt-6 w-full"
-            onClick={() => setIsConfirmDialogOpen(true)}
-            >Finalizar Pedido</Button>
+            <Button
+              className="mt-6 w-full"
+              onClick={() => setIsConfirmDialogOpen(true)}
+            >
+              Finalizar Pedido
+            </Button>
           </>
         ) : (
           <h2 className="text-left font-medium">Sua sacola está vazia.</h2>
@@ -128,13 +138,14 @@ const Cart = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel disabled={isConfirmDialogOpen}>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleFinishOrderClick}
+              disabled={isSubmitLoading}
+            >
               {isSubmitLoading && (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               )}
-              Cancelar
-            </AlertDialogCancel>
-            <AlertDialogAction onClick={handleFinishOrderClick}>
               Finalizar
             </AlertDialogAction>
           </AlertDialogFooter>
