@@ -1,5 +1,7 @@
 "use client";
-
+import { CartContext } from "@/app/_context/cart";
+import { useRouter } from "next/navigation";
+import { useContext } from "react";
 import { Avatar, AvatarImage } from "@/app/_components/ui/avatar";
 import { Button } from "@/app/_components/ui/button";
 import { Card, CardContent } from "@/app/_components/ui/card";
@@ -38,6 +40,21 @@ const getOrderStatusLabel = (status: OrderStatus) => {
 };
 
 const OrderItem = ({ order }: OrderItemProps) => {
+  const { addProductToCart } = useContext(CartContext);
+
+  const router = useRouter();
+
+  const handleRedoOrderClick = () => {
+    for (const orderProduct of order.products) {
+      addProductToCart({
+        product: { ...orderProduct.product, restaurant: order.restaurant },
+        quantity: orderProduct.quantity,
+      });
+    }
+
+    router.push(`/restaurants/${order.restaurantId}`);
+  };
+
   return (
     <Card>
       <CardContent className="p-5">
@@ -104,6 +121,7 @@ const OrderItem = ({ order }: OrderItemProps) => {
             size="sm"
             className="text-xs text-primary"
             disabled={order.status !== "COMPLETED"}
+            onClick={handleRedoOrderClick}
           >
             Refazer pedido
           </Button>
