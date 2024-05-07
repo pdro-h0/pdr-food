@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <div className="flex justify-between px-5 pt-6">
-      <div className="relative h-[30px] w-[100px]">
+      <div className="relative h-[50px] w-[110px]">
         <Link href="/">
           <Image src="/logo.png" alt="logo da PDR Food" fill />
         </Link>

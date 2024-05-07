@@ -1,3 +1,51 @@
+<h1 align="center"> PDR-Food [EM ANDAMENTO] </h1>
+
+<p align="center">
+Este projeto foi feito durante fullstack week do Felipe Rocha. <br/>
+</p>
+
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>
+</p>
+
+<br>
+
+<p align="center">
+  <img alt="projeto PDR-Food" src=".github/preview.png" width="100%">
+</p>
+
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- Next 14
+- TypeScript
+- Tailwindcss
+- Git e Github
+- Shadcn UI
+- Prisma
+- Postgresql
+- Next-auth
+---
+
+
+## 💻 Projeto
+
+O “PDR-Food" é um sistema de entrega de comida que conecta restaurantes e clientes, permitindo que as pessoas façam pedidos de comida online e recebam suas refeições em casa.
+
+<!-- - [Acesse o projeto finalizado, online](https://) -->
+---
+
+## 🔖 Layout
+Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/design/uQIgYk6xDRWgjHCjlaDYBo/%5BLIVE%5D-FSW-Foods?node-id=381%3A7368&t=5VBt8ebvPBIiIZqy-1). É necessário ter conta no [Figma](https://figma.com) para acessá-lo. 
+
+---
+
+Feito com ♥ by Pedro Henrique
+
+---
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -10,8 +58,6 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
